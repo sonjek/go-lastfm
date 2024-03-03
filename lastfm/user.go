@@ -4,15 +4,6 @@ type userApi struct {
 	params *apiParams
 }
 
-//user.getArtistTracks
-func (api userApi) GetArtistTracks(args map[string]interface{}) (result UserGetArtistTracks, err error) {
-	defer func() { appendCaller(err, "lastfm.User.GetArtistTracks") }()
-	err = callGet("user.getartisttracks", api.params, args, &result, P{
-		"plain": []string{"user", "artist", "startTimeStamp", "page", "endTimeStamp"},
-	})
-	return
-}
-
 //user.getFriends
 func (api userApi) GetFriends(args map[string]interface{}) (result UserGetFriends, err error) {
 	defer func() { appendCaller(err, "lastfm.User.GetFriends") }()
