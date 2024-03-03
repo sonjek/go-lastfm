@@ -5,7 +5,6 @@ DO NOT USE THIS CODE IN YOUR PRODUCTION.
 */
 
 import (
-	"../lastfm"
 	"bufio"
 	"fmt"
 	"io"
@@ -14,6 +13,8 @@ import (
 	"net/url"
 	"os"
 	"strings"
+
+	"github.com/sonjek/go-lastfm/lastfm"
 )
 
 const TopPage = `

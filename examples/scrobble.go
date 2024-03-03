@@ -1,12 +1,13 @@
 package main
 
 import (
-	"../lastfm"
 	"bufio"
 	"fmt"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/sonjek/go-lastfm/lastfm"
 )
 
 func getTrimmedString(r *bufio.Reader, msg string) (res string) {
