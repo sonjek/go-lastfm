@@ -7,11 +7,11 @@ Golang wrapper for the Last.fm API 2.0
 
 Get the source codes from github :
 
-    % go get github.com/shkh/lastfm-go/lastfm
+    % go get github.com/sonjek/go-lastfm/lastfm
 
 Import the package :
 
-    import "github.com/shkh/lastfm-go/lastfm"
+    import "github.com/sonjek/go-lastfm/lastfm"
 
 # Usage
 
