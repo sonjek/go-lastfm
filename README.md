@@ -149,4 +149,4 @@ There are three ways to authenticate your requests, which to choose depends on w
 * [user.getWeeklyTrackChart](https://www.last.fm/api/show/user.getWeeklyTrackChart)
 
 # Licence
-MIT Licenced. See [LICENCE](https://github.com/shkh/lastfm-go/blob/master/LICENSE).
+MIT Licenced. See [LICENCE](https://github.com/sonjek/go-lastfm/blob/master/LICENSE).
