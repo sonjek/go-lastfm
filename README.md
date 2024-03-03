@@ -1,19 +1,38 @@
-# Lastfm-go
+# go-lastfm
+
+<p align="center">
+  <img alt="Go version" src="https://img.shields.io/github/go-mod/go-version/sonjek/go-lastfm">
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/sonjek/go-lastfm">
+  <a href="https://github.com/sonjek/go-lastfm/commits/master">
+    <img src="https://img.shields.io/github/last-commit/sonjek/go-lastfm.svg" target="_blank" />
+  </a>
+  <a href="https://pkg.go.dev/github.com/sonjek/go-lastfm" title="GoDoc">
+    <img src="https://pkg.go.dev/badge/github.com/sonjek/go-lastfm?status.svg">
+  </a>
+  <a href="https://github.com/sonjek/go-lastfm/graphs/contributors">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/sonjek/go-lastfm">
+  </a>
+  <a href="https://github.com/sonjek/go-lastfm/blob/master/LICENSE" title="License: MIT">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg">
+  </a>
+</p>
+
+## Purpose
 Golang wrapper for the Last.fm API 2.0
 
 [https://www.last.fm/api/](https://www.last.fm/api/)
 
-# Setup
+## Setup
 
-Get the source codes from github :
+Get the source codes from github:
 
     % go get github.com/sonjek/go-lastfm/lastfm
 
-Import the package :
+Import the package:
 
     import "github.com/sonjek/go-lastfm/lastfm"
 
-# Usage
+## Usage
 
 First, create an API instance with your `API KEY` and `API SECRET`.
 
@@ -46,33 +65,33 @@ Slice of string, []string, can be used for passing multiple values for a key.
 
 
 
-# Authentication
+## Authentication
 There are three ways to authenticate your requests, which to choose depends on what kind of application you are making.
 
 - for Mobile Apps
 
-		err = api.Login (username, password)
+		err = api.Login(username, password)
 
 - for Desktop Apps
 
-		token, _ = api.GetToken () //discarding error
-		authUrl = api.GetAuthTokenUrl (token)
-		//Send your user to "authUrl"
-		//Once the user grant permission, then authorize the token.
-		api.LoginWithToken (token) //discarding error
+		token, _ = api.GetToken() //discarding error
+		authUrl = api.GetAuthTokenUrl(token)
+		// Send your user to "authUrl"
+		// Once the user grant permission, then authorize the token.
+		api.LoginWithToken(token) //discarding error
 
 - for Web Apps
 
 		callback = "https://spam.hum"
-		authUrl, _ = api.GetAuthRequestUrl (callback)
-		//Send your user to "authUrl"
-		//Get the token embeded in the redirected URL, then authorize the token.
-		api.LoginWithToken (token) //discarding error
+		authUrl, _ = api.GetAuthRequestUrl(callback)
+		// Send your user to "authUrl"
+		// Get the token embeded in the redirected URL, then authorize the token.
+		api.LoginWithToken(token) //discarding error
 
 
-# Supported APIs
+## Supported APIs
 
-## Album
+### Album
 * [album.addTags](https://www.last.fm/api/show/album.addTags)
 * [album.getInfo](https://www.last.fm/api/show/album.getInfo)
 * [album.getTags](https://www.last.fm/api/show/album.getTags)
@@ -80,7 +99,7 @@ There are three ways to authenticate your requests, which to choose depends on w
 * [album.removeTag](https://www.last.fm/api/show/album.removeTag)
 * [album.search](https://www.last.fm/api/show/album.search)
 
-## Artist
+### Artist
 * [artist.addTags](https://www.last.fm/api/show/artist.addTags)
 * [artist.getCorrection](https://www.last.fm/api/show/artist.getCorrection)
 * [artist.getInfo](https://www.last.fm/api/show/artist.getInfo)
@@ -92,24 +111,24 @@ There are three ways to authenticate your requests, which to choose depends on w
 * [artist.removeTag](https://www.last.fm/api/show/artist.removeTag)
 * [artist.search](https://www.last.fm/api/show/artist.search)
 
-## Auth
+### Auth
 * [auth.getMobileSession](https://www.last.fm/api/show/auth.getMobileSession)
 * [auth.getSession](https://www.last.fm/api/show/auth.getSession)
 * [auth.getToken](https://www.last.fm/api/show/auth.getToken)
 
-## Chart
+### Chart
 * [chart.getTopArtists](https://www.last.fm/api/show/chart.getTopArtists)
 * [chart.getTopTags](https://www.last.fm/api/show/chart.getTopTags)
 * [chart.getTopTracks](https://www.last.fm/api/show/chart.getTopTracks)
 
-## Geo
+### Geo
 * [geo.getTopArtists](https://www.last.fm/api/show/geo.getTopArtists)
 * [geo.getTopTracks](https://www.last.fm/api/show/geo.getTopTracks)
 
-## Library
+### Library
 * [library.getArtists](https://www.last.fm/api/show/library.getArtists)
 
-## Tag
+### Tag
 * [tag.getInfo](https://www.last.fm/api/show/tag.getInfo)
 * [tag.getSimilar](https://www.last.fm/api/show/tag.getSimilar)
 * [tag.getTopAlbums](https://www.last.fm/api/show/tag.getTopAlbums)
@@ -118,7 +137,7 @@ There are three ways to authenticate your requests, which to choose depends on w
 * [tag.getTopTracks](https://www.last.fm/api/show/tag.getTopTracks)
 * [tag.getWeeklyChartList](https://www.last.fm/api/show/tag.getWeeklyChartList)
 
-## Track
+### Track
 * [track.addTags](https://www.last.fm/api/show/track.addTags)
 * [track.getCorrection](https://www.last.fm/api/show/track.getCorrection)
 * [track.getInfo](https://www.last.fm/api/show/track.getInfo)
@@ -132,7 +151,7 @@ There are three ways to authenticate your requests, which to choose depends on w
 * [track.unlove](https://www.last.fm/api/show/track.unlove)
 * [track.updateNowPlaying](https://www.last.fm/api/show/track.updateNowPlaying)
 
-## User
+### User
 * [user.getFriends](https://www.last.fm/api/show/user.getFriends)
 * [user.getInfo](https://www.last.fm/api/show/user.getInfo)
 * [user.getLovedTracks](https://www.last.fm/api/show/user.getLovedTracks)
@@ -147,5 +166,5 @@ There are three ways to authenticate your requests, which to choose depends on w
 * [user.getWeeklyChartList](https://www.last.fm/api/show/user.getWeeklyChartList)
 * [user.getWeeklyTrackChart](https://www.last.fm/api/show/user.getWeeklyTrackChart)
 
-# Licence
+## Licence
 MIT Licenced. See [LICENCE](https://github.com/sonjek/go-lastfm/blob/master/LICENSE).
