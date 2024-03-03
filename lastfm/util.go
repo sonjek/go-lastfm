@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"encoding/xml"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"sort"
@@ -246,7 +246,7 @@ func callGet(apiMethod string, params *apiParams, args map[string]interface{}, r
 		err = newLibError(res.StatusCode, res.Status)
 		return
 	}
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		return
 	}
@@ -300,7 +300,7 @@ func callPost(apiMethod string, params *apiParams, args P, result interface{}, r
 	if err != nil {
 		return
 	}
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		return
 	}
@@ -335,7 +335,7 @@ func callPostWithoutSession(apiMethod string, params *apiParams, args P, result 
 	if err != nil {
 		return
 	}
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		return
 	}
