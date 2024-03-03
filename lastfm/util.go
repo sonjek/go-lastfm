@@ -23,30 +23,7 @@ func requireAuth(params *apiParams) (err error) {
 	return
 }
 
-/*
-func checkRequiredParams(params P, required ...string) (err error) {
-    var missing []string
-    ng := false
-    for _, p := range required {
-        if _, ok := params[p]; !ok {
-            missing = append(missing, p)
-            ng = true
-        }
-    }
-    if ng {
-        err = newLibError(
-            ErrorParameterMissing,
-            fmt.Sprintf(Messages[ErrorParameterMissing], required, missing),
-        )
-    }
-    return
-}
-*/
-
 func constructUrl(base string, params url.Values) (uri string) {
-	//if ResponseFormat == "json" {
-	//params.Add("format", ResponseFormat)
-	//}
 	p := params.Encode()
 	uri = base + "?" + p
 	return
@@ -114,7 +91,6 @@ func getSignature(params map[string]string, secret string) (sig string) {
 }
 
 func formatArgs(args, rules P) (result map[string]string, err error) {
-
 	result = make(map[string]string)
 	if _, ok := rules["indexing"]; ok {
 
@@ -296,7 +272,6 @@ func callPost(apiMethod string, params *apiParams, args P, result interface{}, r
 	}
 
 	res, err := client.Do(req)
-	//res, err := http.PostForm(uri, postData)
 	if err != nil {
 		return
 	}
