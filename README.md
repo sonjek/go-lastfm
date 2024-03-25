@@ -88,6 +88,9 @@ There are three ways to authenticate your requests, which to choose depends on w
 		// Get the token embeded in the redirected URL, then authorize the token.
 		api.LoginWithToken(token) //discarding error
 
+## Examples
+
+More usage examples can be found in [examples directory](https://github.com/sonjek/go-lastfm/tree/master/examples).
 
 ## Supported APIs
 
