@@ -100,16 +100,13 @@ func formatArgs(args, rules P) (result map[string]string, err error) {
 				switch v := valI.(type) {
 				case string:
 					key := p + "[0]"
-					val := v
-					result[key] = val
+					result[key] = v
 				case int:
 					key := p + "[0]"
-					val := strconv.Itoa(v)
-					result[key] = val
+					result[key] = strconv.Itoa(v)
 				case int64: // timestamp
 					key := p + "[0]"
-					val := strconv.FormatInt(v, 10)
-					result[key] = val
+					result[key] = strconv.FormatInt(v, 10)
 				case []string: // with indexes
 					for i, val := range v {
 						key := fmt.Sprintf("%s[%d]", p, i)
@@ -145,6 +142,7 @@ func formatArgs(args, rules P) (result map[string]string, err error) {
 			}
 		}
 	}
+
 	if err != nil {
 		return
 	}
@@ -162,9 +160,7 @@ func formatArgs(args, rules P) (result map[string]string, err error) {
 			}
 		}
 	}
-	if err != nil {
-		return
-	}
+
 	return
 }
 
