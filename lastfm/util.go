@@ -35,6 +35,8 @@ func toString(val interface{}) (str string, err error) {
 		str = v
 	case int:
 		str = strconv.Itoa(v)
+	case int64:
+		str = strconv.FormatInt(v, 10)
 	case []string:
 		ss := v
 		if len(ss) > 10 {
@@ -95,21 +97,21 @@ func formatArgs(args, rules P) (result map[string]string, err error) {
 	if _, ok := rules["indexing"]; ok {
 		for _, p := range rules["indexing"].([]string) {
 			if valI, ok := args[p]; ok {
-				switch valI.(type) {
+				switch v := valI.(type) {
 				case string:
 					key := p + "[0]"
-					val := valI.(string)
+					val := v
 					result[key] = val
 				case int:
 					key := p + "[0]"
-					val := strconv.Itoa(valI.(int))
+					val := strconv.Itoa(v)
 					result[key] = val
 				case int64: // timestamp
 					key := p + "[0]"
-					val := strconv.FormatInt(valI.(int64), 10)
+					val := strconv.FormatInt(v, 10)
 					result[key] = val
-				case []string: // with indeces
-					for i, val := range valI.([]string) {
+				case []string: // with indexes
+					for i, val := range v {
 						key := fmt.Sprintf("%s[%d]", p, i)
 						result[key] = val
 					}
@@ -118,6 +120,9 @@ func formatArgs(args, rules P) (result map[string]string, err error) {
 						ErrorInvalidTypeOfArgument,
 						Messages[ErrorInvalidTypeOfArgument],
 					)
+				}
+
+				if err != nil {
 					break
 				}
 			} else if _, ok := args[p+"[0]"]; ok {
@@ -125,24 +130,16 @@ func formatArgs(args, rules P) (result map[string]string, err error) {
 					key := fmt.Sprintf("%s[%d]", p, i)
 					if valI, ok := args[key]; ok {
 						var val string
-						switch valI.(type) {
-						case string:
-							val = valI.(string)
-						case int:
-							val = strconv.Itoa(valI.(int))
-						case int64:
-							val = strconv.FormatInt(valI.(int64), 10)
-						default:
-							err = newLibError(
-								ErrorInvalidTypeOfArgument,
-								Messages[ErrorInvalidTypeOfArgument],
-							)
-							break
-						}
+						val, err = toString(valI)
 						result[key] = val
+					}
+
+					if err != nil {
+						break
 					}
 				}
 			}
+
 			if err != nil {
 				break
 			}
@@ -156,27 +153,12 @@ func formatArgs(args, rules P) (result map[string]string, err error) {
 		for _, key := range rules["plain"].([]string) {
 			if valI, ok := args[key]; ok {
 				var val string
-				switch valI.(type) {
-				case string:
-					val = valI.(string)
-				case int:
-					val = strconv.Itoa(valI.(int))
-				case int64:
-					val = strconv.FormatInt(valI.(int64), 10)
-				case []string: // comma delimited
-					ss := valI.([]string)
-					if len(ss) > 10 {
-						ss = ss[:10]
-					}
-					val = strings.Join(ss, ",")
-				default:
-					err = newLibError(
-						ErrorInvalidTypeOfArgument,
-						Messages[ErrorInvalidTypeOfArgument],
-					)
-					break
-				}
+				val, err = toString(valI)
 				result[key] = val
+			}
+
+			if err != nil {
+				break
 			}
 		}
 	}
