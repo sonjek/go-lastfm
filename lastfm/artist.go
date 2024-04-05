@@ -4,7 +4,7 @@ type artistApi struct {
 	params *apiParams
 }
 
-//artist.addTags
+// artist.addTags
 func (api artistApi) AddTags(args map[string]interface{}) (err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.AddTags") }()
 	err = callPost("artist.addtags", api.params, args, nil, P{
@@ -13,7 +13,7 @@ func (api artistApi) AddTags(args map[string]interface{}) (err error) {
 	return
 }
 
-//artist.getCorrection
+// artist.getCorrection
 func (api artistApi) GetCorrection(args map[string]interface{}) (result ArtistGetCorrection, err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.GetCorrection") }()
 	err = callGet("artist.getcorrection", api.params, args, &result, P{
@@ -22,7 +22,7 @@ func (api artistApi) GetCorrection(args map[string]interface{}) (result ArtistGe
 	return
 }
 
-//artist.getInfo
+// artist.getInfo
 func (api artistApi) GetInfo(args map[string]interface{}) (result ArtistGetInfo, err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.GetInfo") }()
 	if _, ok := args["username"]; !ok && api.params.sk != "" {
@@ -37,7 +37,7 @@ func (api artistApi) GetInfo(args map[string]interface{}) (result ArtistGetInfo,
 	return
 }
 
-//artist.getSimilar
+// artist.getSimilar
 func (api artistApi) GetSimilar(args map[string]interface{}) (result ArtistGetSimilar, err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.GetSimilar") }()
 	err = callGet("artist.getsimilar", api.params, args, &result, P{
@@ -46,7 +46,7 @@ func (api artistApi) GetSimilar(args map[string]interface{}) (result ArtistGetSi
 	return
 }
 
-//artist.getTags
+// artist.getTags
 func (api artistApi) GetTags(args map[string]interface{}) (result ArtistGetTags, err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.GetTags") }()
 	if _, ok := args["user"]; !ok && api.params.sk != "" {
@@ -61,7 +61,7 @@ func (api artistApi) GetTags(args map[string]interface{}) (result ArtistGetTags,
 	return
 }
 
-//artist.getTopAlbums
+// artist.getTopAlbums
 func (api artistApi) GetTopAlbums(args map[string]interface{}) (result ArtistGetTopAlbums, err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.GetTopAlbums") }()
 	err = callGet("artist.gettopalbums", api.params, args, &result, P{
@@ -70,7 +70,7 @@ func (api artistApi) GetTopAlbums(args map[string]interface{}) (result ArtistGet
 	return
 }
 
-//artist.getTopTags
+// artist.getTopTags
 func (api artistApi) GetTopTags(args map[string]interface{}) (result ArtistGetTopTags, err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.GetTopTags") }()
 	err = callGet("artist.gettoptags", api.params, args, &result, P{
@@ -79,7 +79,7 @@ func (api artistApi) GetTopTags(args map[string]interface{}) (result ArtistGetTo
 	return
 }
 
-//artist.getTopTracks
+// artist.getTopTracks
 func (api artistApi) GetTopTracks(args map[string]interface{}) (result ArtistGetTopTracks, err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.GetTopTracks") }()
 	err = callGet("artist.gettoptracks", api.params, args, &result, P{
@@ -88,7 +88,7 @@ func (api artistApi) GetTopTracks(args map[string]interface{}) (result ArtistGet
 	return
 }
 
-//artist.removeTag
+// artist.removeTag
 func (api artistApi) RemoveTag(args map[string]interface{}) (err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.RemoveTag") }()
 	err = callPost("artist.removetag", api.params, args, nil, P{
@@ -97,7 +97,7 @@ func (api artistApi) RemoveTag(args map[string]interface{}) (err error) {
 	return
 }
 
-//artist.search
+// artist.search
 func (api artistApi) Search(args map[string]interface{}) (result ArtistSearch, err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.Search") }()
 	err = callGet("artist.search", api.params, args, &result, P{

@@ -4,7 +4,7 @@ type chartApi struct {
 	params *apiParams
 }
 
-//chart.getTopArtists
+// chart.getTopArtists
 func (api chartApi) GetTopArtists(args map[string]interface{}) (result ChartGetTopArtists, err error) {
 	defer func() { appendCaller(err, "lastfm.Chart.GetTopArtists") }()
 	err = callGet("chart.gettopartists", api.params, args, &result, P{
@@ -13,7 +13,7 @@ func (api chartApi) GetTopArtists(args map[string]interface{}) (result ChartGetT
 	return
 }
 
-//chart.getTopTags
+// chart.getTopTags
 func (api chartApi) GetTopTags(args map[string]interface{}) (result ChartGetTopTags, err error) {
 	defer func() { appendCaller(err, "lastfm.Chart.GetTopTags") }()
 	err = callGet("chart.gettoptags", api.params, args, &result, P{
@@ -22,7 +22,7 @@ func (api chartApi) GetTopTags(args map[string]interface{}) (result ChartGetTopT
 	return
 }
 
-//chart.getTopTracks
+// chart.getTopTracks
 func (api chartApi) GetTopTracks(args map[string]interface{}) (result ChartGetTopTracks, err error) {
 	defer func() { appendCaller(err, "lastfm.Chart.GetTopTracks") }()
 	err = callGet("chart.gettoptracks", api.params, args, &result, P{

@@ -2,7 +2,7 @@ package lastfm
 
 import "encoding/xml"
 
-//user.getArtistTracks
+// user.getArtistTracks
 type UserGetArtistTracks struct {
 	User       string `xml:"user,attr"`
 	Artist     string `xml:"artist,attr"`
@@ -38,10 +38,10 @@ type UserGetArtistTracks struct {
 	} `xml:"track"`
 }
 
-//user.getFriends
+// user.getFriends
 type UserGetFriends struct {
 	XMLName    xml.Name `xml:"friends"`
-	For        string   `xml:"for,attr"` //username
+	For        string   `xml:"for,attr"` // username
 	Total      int      `xml:"total,attr"`
 	Page       int      `xml:"page,attr"`
 	PerPage    int      `xml:"perPage,attr"`
@@ -92,7 +92,7 @@ type UserGetFriends struct {
 	} `xml:"user"`
 }
 
-//user.getInfo
+// user.getInfo
 type UserGetInfo struct {
 	XMLName    xml.Name `xml:"user"`
 	Id         string   `xml:"id"`
@@ -110,14 +110,14 @@ type UserGetInfo struct {
 		Unixtime string `xml:"unixtime,attr"`
 		Time     string `xml:",chardata"`
 	} `xml:"registered"`
-	Type   string `xml:"type"` //user type: stuff, moderator, user...
+	Type   string `xml:"type"` // user type: stuff, moderator, user...
 	Images []struct {
 		Size string `xml:"size,attr"`
 		Url  string `xml:",chardata"`
 	} `xml:"image"`
 }
 
-//user.getLovedTracks
+// user.getLovedTracks
 type UserGetLovedTracks struct {
 	XMLName    xml.Name `xml:"lovedtracks"`
 	User       string   `xml:"user,attr"`
@@ -149,7 +149,7 @@ type UserGetLovedTracks struct {
 	} `xml:"track"`
 }
 
-//user.getPersonalTags
+// user.getPersonalTags
 type UserGetPersonalTags struct {
 	XMLName    xml.Name `xml:"taggings"`
 	User       string   `xml:"user,attr"`
@@ -189,7 +189,7 @@ type UserGetPersonalTags struct {
 	} `xml:"tracks>track"`
 }
 
-//user.getRecentTracks
+// user.getRecentTracks
 type UserGetRecentTracks struct {
 	XMLName    xml.Name `xml:"recenttracks"`
 	User       string   `xml:"user,attr"`
@@ -222,7 +222,7 @@ type UserGetRecentTracks struct {
 	} `xml:"track"`
 }
 
-//user.getTopAlbums
+// user.getTopAlbums
 type UserGetTopAlbums struct {
 	XMLName    xml.Name `xml:"topalbums"`
 	User       string   `xml:"user,attr"`
@@ -249,7 +249,7 @@ type UserGetTopAlbums struct {
 	} `xml:"album"`
 }
 
-//user.getTopArtists
+// user.getTopArtists
 type UserGetTopArtists struct {
 	XMLName    xml.Name `xml:"topartists"`
 	User       string   `xml:"user,attr"`
@@ -272,7 +272,7 @@ type UserGetTopArtists struct {
 	} `xml:"artist"`
 }
 
-//user.getTopTags
+// user.getTopTags
 type UserGetTopTags struct {
 	XMLName xml.Name `xml:"toptags"`
 	User    string   `xml:"user,attr"`
@@ -283,7 +283,7 @@ type UserGetTopTags struct {
 	} `xml:"tag"`
 }
 
-//user.getTopTracks
+// user.getTopTracks
 type UserGetTopTracks struct {
 	XMLName    xml.Name `xml:"toptracks"`
 	User       string   `xml:"user,attr"`
@@ -315,7 +315,7 @@ type UserGetTopTracks struct {
 	} `xml:"track"`
 }
 
-//user.getWeeklyAlbumChart
+// user.getWeeklyAlbumChart
 type UserGetWeeklyAlbumChart struct {
 	XMLName xml.Name `xml:"weeklyalbumchart"`
 	User    string   `xml:"user,attr"`
@@ -330,7 +330,7 @@ type UserGetWeeklyAlbumChart struct {
 	} `xml:"album"`
 }
 
-//user.getWeeklyArtistChart
+// user.getWeeklyArtistChart
 type UserGetWeeklyArtistChart struct {
 	XMLName xml.Name `xml:"weeklyartistchart"`
 	User    string   `xml:"user,attr"`
@@ -345,7 +345,7 @@ type UserGetWeeklyArtistChart struct {
 	} `xml:"artist"`
 }
 
-//user.getWeeklyChartList
+// user.getWeeklyChartList
 type UserGetWeeklyChartList struct {
 	XMLName xml.Name `xml:"weeklychartlist"`
 	User    string   `xml:"user,attr"`
@@ -355,7 +355,7 @@ type UserGetWeeklyChartList struct {
 	} `xml:"chart"`
 }
 
-//user.getWeeklyTrackChart
+// user.getWeeklyTrackChart
 type UserGetWeeklyTrackChart struct {
 	XMLName xml.Name `xml:"weeklytrackchart"`
 	User    string   `xml:"user,attr"`
