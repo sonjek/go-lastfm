@@ -8,7 +8,7 @@ type tagApi struct {
 func (api tagApi) GetInfo(args map[string]interface{}) (result TagGetInfo, err error) {
 	defer func() { appendCaller(err, "lastfm.Tag.GetInfo") }()
 	err = callGet("tag.getinfo", api.params, args, &result, P{
-		"plain": []string{"lang", "artist", "mbid"},
+		"plain": []string{"lang", "tag"},
 	})
 	return
 }
