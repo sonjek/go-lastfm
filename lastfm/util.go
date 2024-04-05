@@ -230,6 +230,10 @@ func callPost(apiMethod string, params *apiParams, args P, result interface{}, r
 	tmp["sk"] = params.sk
 
 	formated, err := formatArgs(args, rules)
+	if err != nil {
+		return
+	}
+
 	for k, v := range formated {
 		tmp[k] = v
 		postData.Add(k, v)
@@ -274,6 +278,10 @@ func callPostWithoutSession(apiMethod string, params *apiParams, args P, result 
 	tmp["api_key"] = params.apikey
 
 	formated, err := formatArgs(args, rules)
+	if err != nil {
+		return
+	}
+
 	for k, v := range formated {
 		tmp[k] = v
 		postData.Add(k, v)
