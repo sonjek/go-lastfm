@@ -104,11 +104,11 @@ func formatArgs(args, rules P) (result map[string]string, err error) {
 					key := p + "[0]"
 					val := strconv.Itoa(valI.(int))
 					result[key] = val
-				case int64: //timestamp
+				case int64: // timestamp
 					key := p + "[0]"
 					val := strconv.FormatInt(valI.(int64), 10)
 					result[key] = val
-				case []string: //with indeces
+				case []string: // with indeces
 					for i, val := range valI.([]string) {
 						key := fmt.Sprintf("%s[%d]", p, i)
 						result[key] = val
@@ -163,7 +163,7 @@ func formatArgs(args, rules P) (result map[string]string, err error) {
 					val = strconv.Itoa(valI.(int))
 				case int64:
 					val = strconv.FormatInt(valI.(int64), 10)
-				case []string: //comma delimited
+				case []string: // comma delimited
 					ss := valI.([]string)
 					if len(ss) > 10 {
 						ss = ss[:10]
@@ -240,7 +240,7 @@ func callPost(apiMethod string, params *apiParams, args P, result interface{}, r
 	urlParams := url.Values{}
 	uri := constructUrl(UriApiSecBase, urlParams)
 
-	//post data
+	// post data
 	postData := url.Values{}
 	postData.Add("method", apiMethod)
 	postData.Add("api_key", params.apikey)
@@ -286,7 +286,7 @@ func callPostWithoutSession(apiMethod string, params *apiParams, args P, result 
 	urlParams := url.Values{}
 	uri := constructUrl(UriApiSecBase, urlParams)
 
-	//post data
+	// post data
 	postData := url.Values{}
 	postData.Add("method", apiMethod)
 	postData.Add("api_key", params.apikey)
@@ -304,7 +304,7 @@ func callPostWithoutSession(apiMethod string, params *apiParams, args P, result 
 	sig := getSignature(tmp, params.secret)
 	postData.Add("api_sig", sig)
 
-	//call API
+	// call API
 	res, err := http.PostForm(uri, postData)
 	if err != nil {
 		return

@@ -2,7 +2,7 @@ package lastfm
 
 import "encoding/xml"
 
-//tag.getinfo
+// tag.getinfo
 type TagGetInfo struct {
 	XMLName    xml.Name `tag`
 	Name       string   `xml:"name"`
@@ -17,7 +17,7 @@ type TagGetInfo struct {
 	} `xml:"wiki"`
 }
 
-//tag.getSimilar
+// tag.getSimilar
 type TagGetSimilar struct {
 	XMLName xml.Name `xml:"similartags"`
 	Tag     string   `xml:"tag,attr"`
@@ -28,7 +28,7 @@ type TagGetSimilar struct {
 	} `xml:"tag"`
 }
 
-//tag.getTopAlbums
+// tag.getTopAlbums
 type TagGetTopAlbums struct {
 	XMLName    xml.Name `xml:"topalbums"`
 	Tag        string   `xml:"tag,attr"`
@@ -52,14 +52,14 @@ type TagGetTopAlbums struct {
 	} `xml:"album"`
 }
 
-//tag.getTopArtists
+// tag.getTopArtists
 type TagGetTopArtists struct {
 	XMLName xml.Name `xml:"topartists"`
 	Tag     string   `xml:"tag,attr"`
-	//Total      string   `xml:"total,attr"`
-	//Page       string   `xml:"page,attr"`
-	//PerPage    string   `xml:"perPage,attr"`
-	//TotalPages string   `xml:"totalPages"`
+	// Total      string   `xml:"total,attr"`
+	// Page       string   `xml:"page,attr"`
+	// PerPage    string   `xml:"perPage,attr"`
+	// TotalPages string   `xml:"totalPages"`
 	Artists []struct {
 		Rank       string `xml:"rank,attr"`
 		Name       string `xml:"name"`
@@ -72,7 +72,7 @@ type TagGetTopArtists struct {
 	} `xml:"artist"`
 }
 
-//tag.getTopTags
+// tag.getTopTags
 type TagGetTopTags struct {
 	XMLName xml.Name `xml:"toptags"`
 	Tags    []struct {
@@ -82,7 +82,7 @@ type TagGetTopTags struct {
 	} `xml:"tag"`
 }
 
-//tag.getTopTracks
+// tag.getTopTracks
 type TagGetTopTracks struct {
 	XMLName    xml.Name `xml:"toptracks"`
 	Tag        string   `xml:"tag,attr"`
@@ -112,7 +112,7 @@ type TagGetTopTracks struct {
 	} `xml:"track"`
 }
 
-//tag.getWeeklyChartList
+// tag.getWeeklyChartList
 type TagGetWeeklyChartList struct {
 	XMLName xml.Name `xml:"weeklychartlist"`
 	Tag     string   `xml:"tag,attr"`

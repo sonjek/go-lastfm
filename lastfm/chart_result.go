@@ -2,7 +2,7 @@ package lastfm
 
 import "encoding/xml"
 
-//chart.getTopArtists
+// chart.getTopArtists
 type ChartGetTopArtists struct {
 	XMLName    xml.Name `xml:"artists"`
 	Total      int      `xml:"total,attr"`
@@ -23,7 +23,7 @@ type ChartGetTopArtists struct {
 	} `xml:"artist"`
 }
 
-//chart.getTopTags
+// chart.getTopTags
 type ChartGetTopTags struct {
 	XMLName    xml.Name `xml:"tags"`
 	Total      int      `xml:"total,attr"`
@@ -44,7 +44,7 @@ type ChartGetTopTags struct {
 	} `xml:"tag"`
 }
 
-//chart.getTopTracks
+// chart.getTopTracks
 type ChartGetTopTracks struct {
 	XMLName    xml.Name `xml:"tracks"`
 	Total      int      `xml:"total,attr"`

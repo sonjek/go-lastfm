@@ -2,7 +2,7 @@ package lastfm
 
 import "encoding/xml"
 
-//geo.getTopArtists
+// geo.getTopArtists
 type GeoGetTopArtists struct {
 	XMLName    xml.Name `xml:"topartists"`
 	Country    string   `xml:"country,attr"`
@@ -24,7 +24,7 @@ type GeoGetTopArtists struct {
 	} `xml:"artist"`
 }
 
-//geo.getTopTracks
+// geo.getTopTracks
 type GeoGetTopTracks struct {
 	XMLName    xml.Name `xml:"toptracks"`
 	Country    string   `xml:"country,attr"`

@@ -2,7 +2,7 @@ package lastfm
 
 import "encoding/xml"
 
-//library.getArtists
+// library.getArtists
 type LibraryGetArtists struct {
 	XMLName    xml.Name `xml:"artists"`
 	User       string   `xml:"user,attr"`

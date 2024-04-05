@@ -2,9 +2,9 @@ package lastfm
 
 import "encoding/xml"
 
-//track.addTags (empty)
+// track.addTags (empty)
 
-//track.getCorrection
+// track.getCorrection
 type TrackGetCorrection struct {
 	XMLName    xml.Name `xml:"corrections"`
 	Correction struct {
@@ -24,7 +24,7 @@ type TrackGetCorrection struct {
 	} `xml:"correction"`
 }
 
-//track.getInfo
+// track.getInfo
 type TrackGetInfo struct {
 	XMLName    xml.Name `xml:"track"`
 	Id         string   `xml:"id"`
@@ -66,7 +66,7 @@ type TrackGetInfo struct {
 	} `xml:"wiki"`
 }
 
-//track.getSimilar
+// track.getSimilar
 type TrackGetSimilar struct {
 	XMLName xml.Name `xml:"similartracks"`
 	Track   string   `xml:"track,attr"`
@@ -94,7 +94,7 @@ type TrackGetSimilar struct {
 	} `xml:"track"`
 }
 
-//track.getTags
+// track.getTags
 type TrackGetTags struct {
 	XMLName xml.Name `xml:"tags"`
 	Artist  string   `xml:"artist,attr"`
@@ -105,7 +105,7 @@ type TrackGetTags struct {
 	} `xml:"tag"`
 }
 
-//track.getTopTags
+// track.getTopTags
 type TrackGetTopTags struct {
 	XMLName xml.Name `xml:"toptags"`
 	Artist  string   `xml:"artist,attr"`
@@ -117,11 +117,11 @@ type TrackGetTopTags struct {
 	} `xml:"tag"`
 }
 
-//track.love (empty)
+// track.love (empty)
 
-//track.removeTag (empty)
+// track.removeTag (empty)
 
-//track.scrobble
+// track.scrobble
 type TrackScrobble struct {
 	XMLName   xml.Name `xml:"scrobbles"`
 	Accepted  string   `xml:"accepted,attr"`
@@ -151,7 +151,7 @@ type TrackScrobble struct {
 	} `xml:"scrobble"`
 }
 
-//track.search
+// track.search
 type TrackSearch struct {
 	XMLName    xml.Name `xml:"results"`
 	OpenSearch string   `xml:"opensearch,attr"`
@@ -181,9 +181,9 @@ type TrackSearch struct {
 	} `xml:"trackmatches>track"`
 }
 
-//track.unlove (empty)
+// track.unlove (empty)
 
-//track.updateNowPlaying
+// track.updateNowPlaying
 type TrackUpdateNowPlaying struct {
 	XMLName xml.Name `xml:"nowplaying"`
 	Track   struct {

@@ -6,9 +6,9 @@ import "encoding/xml"
 // artist.x //
 //////////////
 
-//artist.addTags (empty)
+// artist.addTags (empty)
 
-//artist.getCorrection
+// artist.getCorrection
 type ArtistGetCorrection struct {
 	XMLName    xml.Name `xml:"corrections"`
 	Correction struct {
@@ -21,7 +21,7 @@ type ArtistGetCorrection struct {
 	} `xml:"correction"`
 }
 
-//artist.getInfo
+// artist.getInfo
 type ArtistGetInfo struct {
 	Name   string `xml:"name"`
 	Mbid   string `xml:"mbid"`
@@ -35,16 +35,16 @@ type ArtistGetInfo struct {
 		Listeners string `xml:"listeners"`
 		Plays     string `xml:"plays"`
 	} `xml:"stats"`
-	//Similar struct {
-	//Artists []struct {
-	//Name   string `xml:"name"`
-	//Url    string `xml:"url"`
-	//Images []struct {
-	//Size string `xml:"size,attr"`
-	//Url  string `xml:",chardata"`
-	//} `xml:"image"`
-	//} `xml:"artist"`
-	//} `xml:"similar"`
+	// Similar struct {
+	// 	Artists []struct {
+	// 		Name   string `xml:"name"`
+	// 		Url    string `xml:"url"`
+	// 		Images []struct {
+	// 			Size string `xml:"size,attr"`
+	// 			Url  string `xml:",chardata"`
+	// 		} `xml:"image"`
+	// 	} `xml:"artist"`
+	// } `xml:"similar"`
 	Similars []struct {
 		Name   string `xml:"name"`
 		Url    string `xml:"url"`
@@ -69,7 +69,7 @@ type ArtistGetInfo struct {
 	} `xml:"bio"`
 }
 
-//artist.getSimilar
+// artist.getSimilar
 type ArtistGetSimilar struct {
 	XMLName  xml.Name `xml:"similarartists"`
 	Artist   string   `xml:"artist,attr"`
@@ -86,7 +86,7 @@ type ArtistGetSimilar struct {
 	} `xml:"artist"`
 }
 
-//artist.getTags
+// artist.getTags
 type ArtistGetTags struct {
 	XMLName xml.Name `xml:"tags"`
 	Artist  string   `xml:"artist,attr"`
@@ -96,7 +96,7 @@ type ArtistGetTags struct {
 	} `xml:"tag"`
 }
 
-//artist.getTopAlbums
+// artist.getTopAlbums
 type ArtistGetTopAlbums struct {
 	XMLName    xml.Name `xml:"topalbums"`
 	Artist     string   `xml:"artist,attr"`
@@ -122,7 +122,7 @@ type ArtistGetTopAlbums struct {
 	} `xml:"album"`
 }
 
-//artist.getTopTags
+// artist.getTopTags
 type ArtistGetTopTags struct {
 	XMLName xml.Name `xml:"toptags"`
 	Artist  string   `xml:"artist,attr"`
@@ -133,7 +133,7 @@ type ArtistGetTopTags struct {
 	} `xml:"tag"`
 }
 
-//artist.getTopTracks
+// artist.getTopTracks
 type ArtistGetTopTracks struct {
 	XMLName    xml.Name `xml:"toptracks"`
 	Artist     string   `xml:"artist,attr"`
@@ -149,9 +149,9 @@ type ArtistGetTopTracks struct {
 	} `xml:"track"`
 }
 
-//artist.removeTag (empty)
+// artist.removeTag (empty)
 
-//artist.search
+// artist.search
 type ArtistSearch struct {
 	XMLName    xml.Name `xml:"results"`
 	OpenSearch string   `xml:"opensearch,attr"`
