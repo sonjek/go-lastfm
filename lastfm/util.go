@@ -30,13 +30,13 @@ func constructUrl(base string, params url.Values) (uri string) {
 }
 
 func toString(val interface{}) (str string, err error) {
-	switch val.(type) {
+	switch v := val.(type) {
 	case string:
-		str = val.(string)
+		str = v
 	case int:
-		str = strconv.Itoa(val.(int))
+		str = strconv.Itoa(v)
 	case []string:
-		ss := val.([]string)
+		ss := v
 		if len(ss) > 10 {
 			ss = ss[:10]
 		}
