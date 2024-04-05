@@ -23,12 +23,12 @@ func TestFormatArgs(t *testing.T) {
 	}{
 		{
 			P{"tags": []string{"t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12"}},
-			P{"normal": []string{"tags"}},
+			P{"plain": []string{"tags"}},
 			map[string]string{"tags": "t0,t1,t2,t3,t4,t5,t6,t7,t8,t9"},
 		},
 		{
 			P{"tags": "t"},
-			P{"normal": []string{"tags"}},
+			P{"plain": []string{"tags"}},
 			map[string]string{"tags": "t"},
 		},
 		{
@@ -43,12 +43,12 @@ func TestFormatArgs(t *testing.T) {
 		},
 		{
 			P{"artist": []string{"a0", "a1", "a2"}, "recipient": []string{"r0", "r1", "r2"}},
-			P{"indexing": []string{"artist"}, "normal": []string{"recipient"}},
+			P{"indexing": []string{"artist"}, "plain": []string{"recipient"}},
 			map[string]string{"artist[0]": "a0", "artist[1]": "a1", "artist[2]": "a2", "recipient": "r0,r1,r2"},
 		},
 		{
 			P{"tags": []string{"t0", "t1", "t2"}, "artist": []string{"a0", "a1"}, "id": 10, "name": "kumakichi"},
-			P{"normal": []string{"id", "name", "tags"}, "indexing": []string{"artist"}},
+			P{"plain": []string{"id", "name", "tags"}, "indexing": []string{"artist"}},
 			map[string]string{"tags": "t0,t1,t2", "artist[0]": "a0", "artist[1]": "a1", "id": "10", "name": "kumakichi"},
 		},
 	}

@@ -93,7 +93,6 @@ func getSignature(params map[string]string, secret string) (sig string) {
 func formatArgs(args, rules P) (result map[string]string, err error) {
 	result = make(map[string]string)
 	if _, ok := rules["indexing"]; ok {
-
 		for _, p := range rules["indexing"].([]string) {
 			if valI, ok := args[p]; ok {
 				switch valI.(type) {
