@@ -6,6 +6,66 @@ import (
 	"testing"
 )
 
+func TestToString(t *testing.T) {
+	testCases := []struct {
+		name          string
+		input         interface{}
+		expectedStr   string
+		expectedError error
+	}{
+		{
+			name:          "String",
+			input:         "hello",
+			expectedStr:   "hello",
+			expectedError: nil,
+		},
+		{
+			name:          "Integer",
+			input:         42,
+			expectedStr:   "42",
+			expectedError: nil,
+		},
+		{
+			name:          "Integer 64",
+			input:         int64(123),
+			expectedStr:   "123",
+			expectedError: nil,
+		},
+		{
+			name:          "Slice of strings",
+			input:         []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"},
+			expectedStr:   "a,b,c,d,e,f,g,h,i,j",
+			expectedError: nil,
+		},
+		{
+			name:          "Unsupported Bool",
+			input:         true,
+			expectedStr:   "",
+			expectedError: newLibError(ErrorInvalidTypeOfArgument, Messages[ErrorInvalidTypeOfArgument]),
+		},
+		{
+			name:          "Unsupported nil",
+			input:         nil,
+			expectedStr:   "",
+			expectedError: newLibError(ErrorInvalidTypeOfArgument, Messages[ErrorInvalidTypeOfArgument]),
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			str, err := toString(tc.input)
+
+			if str != tc.expectedStr {
+				t.Errorf("Expected string to be %s, but got %s", tc.expectedStr, str)
+			}
+
+			if tc.expectedError != nil && err == nil && tc.expectedError.Error() != err.Error() {
+				t.Errorf("Expected error to be %v, but got %v", tc.expectedError, err)
+			}
+		})
+	}
+}
+
 func TestFormatArgs(t *testing.T) {
 	testCases := []struct {
 		name string
