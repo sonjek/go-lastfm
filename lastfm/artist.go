@@ -49,15 +49,9 @@ func (api artistApi) GetSimilar(args map[string]interface{}) (result ArtistGetSi
 // artist.getTags
 func (api artistApi) GetTags(args map[string]interface{}) (result ArtistGetTags, err error) {
 	defer func() { appendCaller(err, "lastfm.Artist.GetTags") }()
-	if _, ok := args["user"]; !ok && api.params.sk != "" {
-		err = callGet("artist.gettags", api.params, args, &result, P{
-			"plain": []string{"artist", "mbid", "user", "autocorrect"},
-		})
-	} else {
-		err = callGet("artist.gettags", api.params, args, &result, P{
-			"plain": []string{"artist", "mbid", "user", "autocorrect"},
-		})
-	}
+	err = callGet("artist.gettags", api.params, args, &result, P{
+		"plain": []string{"artist", "mbid", "user", "autocorrect"},
+	})
 	return
 }
 
