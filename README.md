@@ -68,14 +68,14 @@ There are three ways to authenticate your requests, which to choose depends on w
 - for Mobile Apps
 
 ```go
-	err = api.Login(username, password)
+	err := api.Login(username, password)
 ```
 
 - for Desktop Apps
 
 ```go
-	token, _ = api.GetToken()
-	authUrl = api.GetAuthTokenUrl(token)
+	token, _ := api.GetToken()
+	authUrl := api.GetAuthTokenUrl(token)
 	// Send your user to "authUrl"
 	// Once the user grant permission, then authorize the token.
 	api.LoginWithToken(token)
@@ -84,8 +84,8 @@ There are three ways to authenticate your requests, which to choose depends on w
 - for Web Apps
 
 ```go
-	callback = "https://spam.hum"
-	authUrl, _ = api.GetAuthRequestUrl(callback)
+	callback := "https://spam.hum"
+	authUrl, _ := api.GetAuthRequestUrl(callback)
 	// Send your user to "authUrl"
 	// Get the token embeded in the redirected URL, then authorize the token.
 	api.LoginWithToken(token)
