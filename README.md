@@ -1,21 +1,8 @@
 # go-lastfm
 
-<p align="center">
-  <img alt="Go version" src="https://img.shields.io/github/go-mod/go-version/sonjek/go-lastfm">
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/sonjek/go-lastfm">
-  <a href="https://github.com/sonjek/go-lastfm/commits/master">
-    <img src="https://img.shields.io/github/last-commit/sonjek/go-lastfm.svg" target="_blank" />
-  </a>
-  <a href="https://pkg.go.dev/github.com/sonjek/go-lastfm" title="GoDoc">
-    <img src="https://pkg.go.dev/badge/github.com/sonjek/go-lastfm?status.svg">
-  </a>
-  <a href="https://github.com/sonjek/go-lastfm/graphs/contributors">
-    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/sonjek/go-lastfm">
-  </a>
-  <a href="https://github.com/sonjek/go-lastfm/blob/master/LICENSE" title="License: MIT">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg">
-  </a>
-</p>
+
+[![Go build status](https://github.com/sonjek/go-lastfm/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/sonjek/go-lastfm/actions/workflows/ci.yml) [![Go Report Card](https://goreportcard.com/badge/github.com/sonjek/go-lastfm)](https://goreportcard.com/report/github.com/sonjek/go-lastfm) [![API reference](https://img.shields.io/badge/api-reference-blue.svg)](https://pkg.go.dev/github.com/sonjek/go-lastfm) [![Contributors](https://img.shields.io/github/contributors/sonjek/go-lastfm)](https://github.com/sonjek/go-lastfm/graphs/contributors) [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/sonjek/go-lastfm?include_prereleases)](https://github.com/sonjek/go-lastfm/releases) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sonjek/go-lastfm/blob/master/LICENSE)
+
 
 [sonjek/go-lastfm](https://github.com/sonjek/go-lastfm) is a fork of [shkh/lastfm-go](https://github.com/shkh/lastfm-go) that hasn't been maintained since the end of 2019.
 
