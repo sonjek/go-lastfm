@@ -13,27 +13,36 @@ Golang wrapper for the [Last.fm API 2.0](https://www.last.fm/api/)
 
 Get the source codes from github:
 
-    % go get github.com/sonjek/go-lastfm/lastfm
+```bash
+go get github.com/sonjek/go-lastfm/lastfm
+```
 
 Import the package:
 
+```go
     import "github.com/sonjek/go-lastfm/lastfm"
+```
 
 ## Usage
 
 First, create an API instance with your `API KEY` and `API SECRET`.
 
+```go
 	api := lastfm.New(ApiKey, ApiSecret)
+```
 
 Note that some API methods require your user's permission, so make sure that your requests are authenticated before calling these methods. See "Authentication" section.
 
 API instances contain the structs which represent API classes, and each struct has methods corresponding to their API methods.
 So you can call `artist.getTopTracks` for example as following:
 
-	result, _ := api.Artist.GetTopTracks(lastfm.P{"artist": "Avicii"}) //discarding error
+```go
+    // with discarding error
+	result, _ := api.Artist.GetTopTracks(lastfm.P{"artist": "Avicii"})
 	for _, track := range result.Tracks {
 		fmt.Println(track.Name)
 	}
+```
 
 Methods that fetch some data return their result as a struct named `ClassMethod` (e.g. api.User.GetInfo returns its result of type UserGetInfo).
 They can be found in `class_result.go`.
@@ -43,13 +52,14 @@ You can use `lastfm.P` for arguments.
 It's just an alias to `map[string]interface{}`, but values must be `string`, `int`, `int64` (for unix timestamp) or `[]string`.
 Slice of string, []string, can be used for passing multiple values for a key.
 
+```go
 	// album.addTags (auth required)
-	api.Album.AddTags(lastfm.P{ //discarding error
+	api.Album.AddTags(lastfm.P{
 		"artist": "Kaene",
 		"album":  "Strangeland",
 		"tags":   []string{"britpop", "alternative rock", "2012"},
 	})
-
+```
 
 
 ## Authentication
@@ -57,23 +67,29 @@ There are three ways to authenticate your requests, which to choose depends on w
 
 - for Mobile Apps
 
-		err = api.Login(username, password)
+```go
+	err = api.Login(username, password)
+```
 
 - for Desktop Apps
 
-		token, _ = api.GetToken() //discarding error
-		authUrl = api.GetAuthTokenUrl(token)
-		// Send your user to "authUrl"
-		// Once the user grant permission, then authorize the token.
-		api.LoginWithToken(token) //discarding error
+```go
+	token, _ = api.GetToken()
+	authUrl = api.GetAuthTokenUrl(token)
+	// Send your user to "authUrl"
+	// Once the user grant permission, then authorize the token.
+	api.LoginWithToken(token)
+```
 
 - for Web Apps
 
-		callback = "https://spam.hum"
-		authUrl, _ = api.GetAuthRequestUrl(callback)
-		// Send your user to "authUrl"
-		// Get the token embeded in the redirected URL, then authorize the token.
-		api.LoginWithToken(token) //discarding error
+```go
+	callback = "https://spam.hum"
+	authUrl, _ = api.GetAuthRequestUrl(callback)
+	// Send your user to "authUrl"
+	// Get the token embeded in the redirected URL, then authorize the token.
+	api.LoginWithToken(token)
+```
 
 ## Examples
 
