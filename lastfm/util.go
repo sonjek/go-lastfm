@@ -1,7 +1,7 @@
 package lastfm
 
 import (
-	"crypto/md5"
+	"crypto/md5" // #nosec
 	"encoding/hex"
 	"encoding/xml"
 	"fmt"
@@ -86,7 +86,7 @@ func getSignature(params map[string]string, secret string) (sig string) {
 	}
 	sigPlain += secret
 
-	hasher := md5.New()
+	hasher := md5.New() // #nosec https://www.last.fm/api/authspec
 	hasher.Write([]byte(sigPlain))
 	sig = hex.EncodeToString(hasher.Sum(nil))
 	return
