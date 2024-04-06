@@ -11,7 +11,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  files-changed:
+    uses: ./.github/workflows/files-changed.yml
+
   lint:
+    if: needs.files-changed.outputs.lib == 'true' || needs.files-changed.outputs.actions == 'true'
+    needs: files-changed
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -24,6 +29,8 @@ jobs:
     - name: lint
       uses: golangci/golangci-lint-action@v4
   test:
+    if: needs.files-changed.outputs.lib == 'true' || needs.files-changed.outputs.actions == 'true'
+    needs: files-changed
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -36,6 +43,8 @@ jobs:
     - name: Test
       run: go test -v ./lastfm/...
   build:
+    if: needs.files-changed.outputs.lib == 'true' || needs.files-changed.outputs.actions == 'true'
+    needs: files-changed
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
