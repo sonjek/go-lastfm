@@ -36,7 +36,7 @@ Import the package:
 
 First, create an API instance with your `API KEY` and `API SECRET`.
 
-	api := lastfm.New (ApiKey, ApiSecret)
+	api := lastfm.New(ApiKey, ApiSecret)
 
 Note that some API methods require your user's permission, so make sure that your requests are authenticated before calling these methods. See "Authentication" section.
 
@@ -56,7 +56,7 @@ You can use `lastfm.P` for arguments.
 It's just an alias to `map[string]interface{}`, but values must be `string`, `int`, `int64` (for unix timestamp) or `[]string`.
 Slice of string, []string, can be used for passing multiple values for a key.
 
-	//album.addTags (auth required)
+	// album.addTags (auth required)
 	api.Album.AddTags(lastfm.P{ //discarding error
 		"artist": "Kaene",
 		"album":  "Strangeland",
