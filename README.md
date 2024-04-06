@@ -17,10 +17,10 @@
   </a>
 </p>
 
-## Purpose
-Golang wrapper for the Last.fm API 2.0
+[sonjek/go-lastfm](https://github.com/sonjek/go-lastfm) is a fork of [shkh/lastfm-go](https://github.com/shkh/lastfm-go) that hasn't been maintained since the end of 2019.
 
-[https://www.last.fm/api/](https://www.last.fm/api/)
+## Purpose
+Golang wrapper for the [Last.fm API 2.0](https://www.last.fm/api/)
 
 ## Setup
 
