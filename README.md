@@ -1,6 +1,5 @@
 # go-lastfm
 
-
 [![Go build status](https://github.com/sonjek/go-lastfm/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/sonjek/go-lastfm/actions/workflows/ci.yml) [![Go Report Card](https://goreportcard.com/badge/github.com/sonjek/go-lastfm)](https://goreportcard.com/report/github.com/sonjek/go-lastfm) [![API reference](https://img.shields.io/badge/api-reference-blue.svg)](https://pkg.go.dev/github.com/sonjek/go-lastfm) [![Contributors](https://img.shields.io/github/contributors/sonjek/go-lastfm)](https://github.com/sonjek/go-lastfm/graphs/contributors) [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/sonjek/go-lastfm?include_prereleases)](https://github.com/sonjek/go-lastfm/releases) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sonjek/go-lastfm/blob/master/LICENSE)
 
 
