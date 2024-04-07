@@ -92,7 +92,7 @@ There are three ways to authenticate your requests, which to choose depends on w
 
 ## Examples
 
-More usage examples can be found in [examples directory](https://github.com/sonjek/go-lastfm/tree/master/examples).
+More usage examples can be found in [examples directory](examples).
 
 ## Supported APIs
 
