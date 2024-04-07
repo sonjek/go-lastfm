@@ -7,7 +7,6 @@ on:
     paths:
       - "lastfm/**/*.go"
       - "go.mod"
-      - "go.sum"
       - ".golangci.yml"
       - ".github/workflows/*"
   pull_request:
@@ -16,7 +15,6 @@ on:
     paths:
       - "lastfm/**/*.go"
       - "go.mod"
-      - "go.sum"
       - ".golangci.yml"
       - ".github/workflows/*"
 
