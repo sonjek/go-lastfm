@@ -34,7 +34,7 @@ jobs:
         go-version-file: go.mod
         check-latest: true
     - name: lint
-      uses: golangci/golangci-lint-action@v4
+      uses: golangci/golangci-lint-action@v5
   test:
     runs-on: ubuntu-latest
     steps:
