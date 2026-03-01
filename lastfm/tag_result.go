@@ -4,7 +4,7 @@ import "encoding/xml"
 
 // tag.getinfo
 type TagGetInfo struct {
-	XMLName    xml.Name `tag`
+	XMLName    xml.Name `xml:"tag"`
 	Name       string   `xml:"name"`
 	Url        string   `xml:"url"`
 	Reach      string   `xml:"reach"`
