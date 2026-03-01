@@ -1,4 +1,6 @@
-package main
+//go:build ignore
+
+package examples
 
 /*
 DO NOT USE THIS CODE IN YOUR PRODUCTION.
