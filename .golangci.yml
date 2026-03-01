@@ -1,3 +1,5 @@
+version: "2"
+
 linters:
   enable:
     - asciicheck
@@ -5,11 +7,8 @@ linters:
     - dupword
     - durationcheck
     - errorlint
-    - gosec
     - gocritic
-    - gofmt
-    - gofumpt
-    - goimports
+    - gosec
     - misspell
     - nolintlint
     - predeclared
@@ -17,34 +16,54 @@ linters:
     - testifylint
     - unconvert
 
-linters-settings:
-  gofmt:
-    simplify: true
-  depguard:
-    rules:
-      main:
-        deny:
-          - pkg: "io/ioutil"
-            desc: "Use corresponding 'os' or 'io' functions instead."
-          - pkg: "github.com/pkg/errors"
-            desc: "Use 'errors' or 'fmt' instead of github.com/pkg/errors"
-          - pkg: "golang.org/x/exp/slices"
-            desc: "Use 'slices' instead."
-  revive:
-    # https://github.com/mgechev/revive/blob/master/defaults.toml
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md
-    rules:
-      - name: var-naming
-        disabled: true
-      - name: empty-block
-        disabled: true
-  gosec:
-    # Available rules: https://github.com/securego/gosec#available-rules
-    excludes:
-      - G107 # This project aren't calling unknown URL
+  settings:
+    depguard:
+      rules:
+        main:
+          deny:
+            - pkg: io/ioutil
+              desc: Use corresponding 'os' or 'io' functions instead.
+            - pkg: github.com/pkg/errors
+              desc: Use 'errors' or 'fmt' instead of github.com/pkg/errors
+            - pkg: golang.org/x/exp/slices
+              desc: Use 'slices' instead.
+    gosec:
+      excludes:
+        - G107
+    revive:
+      rules:
+        - name: var-naming
+          disabled: true
+        - name: empty-block
+          disabled: true
 
-issues:
-  exclude-rules:
-    - text: 'structtag'
-      linters:
-        - govet
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - linters:
+          - govet
+        text: structtag
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+
+formatters:
+  enable:
+    - gofmt
+    - gofumpt
+    - goimports
+  settings:
+    gofmt:
+      simplify: true
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
