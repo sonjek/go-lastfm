@@ -22,6 +22,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -29,30 +32,35 @@ jobs:
     - uses: actions/checkout@v6
       with:
         fetch-depth: 0
+        persist-credentials: false
     - uses: actions/setup-go@v6
       with:
         go-version-file: go.mod
         check-latest: true
     - name: lint
-      uses: golangci/golangci-lint-action@v9
+      uses: golangci/golangci-lint-action@1e7e51e771db61008b38414a730f564565cf7c20 # v9.2.0
+
   test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
       with:
         fetch-depth: 0
+        persist-credentials: false
     - uses: actions/setup-go@v6
       with:
         go-version-file: go.mod
         check-latest: true
     - name: Test
       run: go test -v ./lastfm/...
+
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
       with:
         fetch-depth: 0
+        persist-credentials: false
     - uses: actions/setup-go@v6
       with:
         go-version-file: go.mod
